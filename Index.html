@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Echo - Only for Liam</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="password-screen">
+    <h2>Enter the key</h2>
+    <input type="password" id="password-input" placeholder="Enter the password"/>
+    <button onclick="checkPassword()">Enter</button>
+    <p id="error-message"></p>
+  </div>
+
+  <div id="content" style="display: none;">
+    <header>
+      <h1>Echo</h1>
+      <p class="subtitle">برای اون لحظه‌هایی که نمی‌تونستی حرف دلت رو بزنی...</p>
+    </header>
+
+    <section class="music-section">
+      <h2>Playlist</h2>
+      <ul class="music-list">
+        <!-- لیست آهنگ‌ها -->
+        <li>
+          <p><strong>Lie With You - Ten</strong></p>
+          <audio controls src="audio/lie-with-you.mp3"></audio>
+        </li>
+        <li>
+          <p>Compass - The Neighbourhood</p>
+          <audio controls src="audio/compass.mp3"></audio>
+        </li>
+        <!-- ادامه‌ی آهنگ‌ها رو خودت به همین شکل اضافه کن -->
+      </ul>
+    </section>
+
+    <section class="message-box">
+      <h2>برای هر چیزی که نگفتی:</h2>
+      <form action="https://formsubmit.co/saniashiekha@gmail.com" method="POST">
+        <textarea name="message" placeholder="بنویس هر چیزی که توی دلت مونده..." required></textarea>
+        <input type="hidden" name="_captcha" value="false">
+        <button type="submit">بفرست</button>
+      </form>
+    </section>
+  </div>
+
+  <script>
+    const correctPassword = "Onlyforliam18bluechos";
+    function checkPassword() {
+      const input = document.getElementById("password-input").value;
+      const error = document.getElementById("error-message");
+      if (input === correctPassword) {
+        document.getElementById("password-screen").style.display = "none";
+        document.getElementById("content").style.display = "block";
+      } else {
+        error.textContent = "رمز اشتباهه... دوباره امتحان کن.";
+      }
+    }
+  </script>
+</body>
+</html>
